@@ -34,11 +34,11 @@ const node = new Lava.Node({
   userId: client.user?.id ?? "", // the user id of your bot
 });
 
-client.ws.on("VOICE_STATE_UPDATE", (data: Lava.VoiceStateUpdate) => {
+client.ws.on("VOICE_STATE_UPDATE", ({data: Lava.VoiceStateUpdate}) => {
   node.voiceStateUpdate(data);
 });
 
-client.ws.on("VOICE_SERVER_UPDATE", (data: Lava.VoiceServerUpdate) => {
+client.ws.on("VOICE_SERVER_UPDATE", ({data: Lava.VoiceServerUpdate}) => {
   node.voiceServerUpdate(data);
 });
 
