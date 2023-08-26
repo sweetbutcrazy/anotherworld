@@ -39,12 +39,11 @@ client.on('raw', (data) => {
   client.moon.packetUpdate(data) //this will send to the package the information needed for the package to work properly
 })
 client.on('message', async(message) => {
-  if (message.content.startsWith('f!play'){
+  if (message.content.startsWith('f!play')){
   if (!message.member.voice.channel) return message.reply({
     content: `you are not on a voice channel`,
     ephemeral: true
-  })
-  
+  });
   let player = client.moon.players.create({
     guildId: message.guild.id,
     voiceChannel: message.member.voice.channel.id,
@@ -58,7 +57,6 @@ client.on('message', async(message) => {
 
   if (!player.playing) player.play()
   }
-}
 });
 
 client.commands = new Collection();
