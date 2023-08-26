@@ -4,7 +4,7 @@ const { Client, GatewayIntentBits, Collection }= require('discord.js');
 const fs = require("fs");
 const moment = require('moment');
 const config = require("./config.json");
-const MoonlinkManager = require("moonlink.js");
+const Lavalink = require("@performanc/fastlink");
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds, 
@@ -15,49 +15,127 @@ const client = new Client({
    ]
   })
                                  
-client.moon = new MoonlinkManager([{
-  host: 'localhost',
-  port: 2333,
-  secure: true,
-  password: 'MyPassword'
-}], { /* Option */ }, (guild, sPayload) => {
-  client.guilds.cache.get(guild).shard.send(JSON.parse(sPayload))
+const prefix = config.prefix
+const events = Lavalink.node.connectNodes([{
+  hostname: '127.0.0.1',
+  secure: false,
+  password: 'youshallnotpass',
+  port: 2333
+}], {
+  botId: 'Your bot Id here',
+  shards: 1,
+  queue: true,
+  debug: true
 })
-client.moon.on('nodeCreate', (node) => {
-  console.log(`${node.host} was connected`)
-}) //emit to the console the node was connected to
-client.moon.on('trackStart', async(player, track) => {
-  client.channels.cache.get(player.textChannel).send(`${track.title} is playing now`) //when the player starts it will send a message to the channel where the command was executed
-})
-client.moon.on('trackEnd', async(player, track) => {
-  client.channels.cache.get(player.textChannel).send(`track is over`) //when the player starts it will send a message to the channel where the command was executed
-})
-client.on('ready', () => {
-  client.moon.init(client.user.id); //initializing the package
-});
-client.on('raw', (data) => {
-  client.moon.packetUpdate(data) //this will send to the package the information needed for the package to work properly
-})
-client.on('message', async(message) => {
-  if (message.content.startsWith('f!play')){
-  if (!message.member.voice.channel) return message.reply({
-    content: `you are not on a voice channel`,
-    ephemeral: true
-  });
-  let player = client.moon.players.create({
-    guildId: message.guild.id,
-    voiceChannel: message.member.voice.channel.id,
-    textChannel: message.channel.id,
-    autoPlay: true
-  }); //creating a player
-  if (!player.connected) player.connect({
-    setDeaf: true,
-    setMute: false
-  }) // if the player is not connected it will connect to the voice channel
 
-  if (!player.playing) player.play()
+client.on('messageCreate', async (message) => {
+  if (message.content.startsWith(prefix + 'decodetrack')) {
+    const player = new Lavalink.player.Player(message.guild.id)
+
+    if (player.playerCreated() == false) 
+      return message.channel.send('No player found.')
+
+    let track = await player.decodeTrack(message.content.replace(prefix + 'decodetrack ', ''))
+
+    return message.channel.send(JSON.stringify(track, null, 2))
   }
-});
+
+  if (message.content.startsWith(prefix + 'play')) {
+    if (!message.member.voice.channel)
+      return message.channel.send('You must be in a voice channel.')
+
+    if (!Lavalink.node.anyNodeAvailable())
+      return message.channel.send('There aren\'t nodes connected.')
+
+    const player = new Lavalink.player.Player(message.guild.id)
+
+    if (player.playerCreated() == false) player.createPlayer()
+
+    player.connect(message.member.voice.channel.id.toString(), { mute: false, deaf: true }, (guildId, payload) => {
+      client.guilds.cache.get(guildId).shard.send(payload)
+    })
+
+    const music = message.content.replace(prefix + 'play ', '')
+    const track = await player.loadTrack((music.startsWith('https://') ? '' : 'ytsearch:') + music)
+
+    if (track.loadType == 'error') 
+      return message.channel.send('Something went wrong. ' + track.data.message)
+
+    if (track.loadType == 'empty')
+      return message.channel.send('No matches found.')
+
+    if (track.loadType == 'playlist') {
+      player.update({ encodedTracks: track.data.tracks.map((track) => track.encoded) })
+
+      return message.channel.send(`Added ${track.data.tracks.length} songs to the queue, and playing ${track.data.tracks[0].info.title}.`)
+    }
+
+    if (track.loadType == 'track' || track.loadType == 'short') {
+      player.update({ encodedTrack: track.data.encoded, })
+
+      return message.channel.send(`Playing ${track.data.info.title} from ${track.data.info.sourceName} from url search.`)
+    }
+
+    if (track.loadType == 'search') {
+      player.update({ encodedTrack: track.data[0].encoded })
+
+      return message.channel.send(`Playing ${track.data[0].info.title} from ${track.data[0].info.sourceName} from search.`)
+    }
+
+  }
+
+  if (message.content.startsWith(prefix + 'volume')) {
+    const player = new Lavalink.player.Player(message.guild.id)
+
+    if (player.playerCreated() == false) 
+      return message.channel.send('No player found.')
+
+    Lavalink.player.update(player, message.guild.id, {
+      volume: parseInt(message.content.replace(prefix + 'volume ', ''))
+    })
+  }
+
+  if (message.content.startsWith(prefix + 'pause')) {
+    const player = new Lavalink.player.Player(message.guild.id)
+
+    if (player.playerCreated() == false) 
+      return message.channel.send('No player found.')
+
+    player.update({ paused: true })
+  }
+
+  if (message.content.startsWith(prefix + 'resume')) {
+    const player = new Lavalink.player.Player(message.guild.id)
+
+    if (player.playerCreated() == false) 
+      return message.channel.send('No player found.')
+
+    player.update({ paused: false })
+  }
+
+  if (message.content.startsWith(prefix + 'skip')) {
+    const player = new Lavalink.player.Player(message.guild.id)
+
+    if (player.playerCreated() == false) 
+      return message.channel.send('No player found.')
+
+    const skip = player.skipTrack()
+
+    if (skip.skipped) return message.channel.send('Skipped the current track.')
+    else return message.channel.send('Could not skip the current track.')
+  }
+
+  if (message.content.startsWith(prefix + 'stop')) {
+    const player = new Lavalink.player.Player(message.guild.id)
+
+    if (player.playerCreated() == false) 
+      return message.channel.send('No player found.')
+
+    player.update({ encodedTrack: null })
+  }
+})
+
+client.on('raw', (data) => Lavalink.other.handleRaw(data)
 
 client.commands = new Collection();
 client.events = new Collection();
