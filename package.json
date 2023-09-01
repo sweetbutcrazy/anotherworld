@@ -1,25 +1,21 @@
 {
-  "name": "hello-express",
-  "version": "2.0.0",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "name": "discordjs-v14-bot",
+  "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
   },
   "dependencies": {
+    "@discordjs/rest": "^0.4.0-dev.1648166871.cedd053",
+    "ascii-table": "^0.0.9",
+    "chalk": "^2.4.1",
+    "discord-api-types": "^0.30.0",
     "discord.js": "^14.13.0",
-    "fs": "^0.0.2",
-    "moment": "^2.29.4",
-    "util": "^0.12.5"
- 
-  },
-  "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
-  },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ]
+    "ms": "^2.1.3"
+  }
 }
