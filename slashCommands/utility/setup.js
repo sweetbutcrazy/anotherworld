@@ -80,7 +80,7 @@ module.exports = {
           */
 		const value = Array.from(i.values);
             if (value.includes('mole')) {
-		    await guild.channels.create({
+		    await i.guild.channels.create({
 			    name: `Mobile Legends`,
 			    type: 2,
 			    
