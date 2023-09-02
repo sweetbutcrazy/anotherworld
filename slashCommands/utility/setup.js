@@ -74,9 +74,19 @@ module.exports = {
 			    parent: '730325949018538004', 
 			    userLimit: 5,
 		    })
-		    await interaction.member.voice.setChannel(chnl)
+		   
+		   // await interaction.member.voice.setChannel(chnl)
+		    .then(temporary => {
+			    temp = temporary
+				    .then(() => newMember.setVoiceChannel(chnl.id))
+		    }).catch(err =>{
+			    console.error(err);
+		    })
+        }
+        if(i.member.voice.channel.members.size === 0){temp.delete()};
+    }); 
 		    await wait(2000)
-		    if (chnl.members.size <= 0 ) {
+		    if (i.user.channel.members.size <= 0 ) {
 			   await chnl.delete()
 		    } 
                
