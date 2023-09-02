@@ -81,7 +81,7 @@ module.exports = {
 		const value = Array.from(i.values);
             if (value.includes('mole')) {
 		    await guild.channels.create({
-			    name: `${user.username}'s Channel`,
+			    name: `Mobile Legends`,
 			    type: 2,
 			    parent: i.user.channel.parent,
 			    userLimit: 5,
