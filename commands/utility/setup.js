@@ -47,6 +47,9 @@ module.exports = {
                         },
                     ),
             );
+	    const embed1 = new EmbedBuilder() 
+	   .setDescription('Created a Voice Channel Mobile Legends')
+	   .setTimeStamp()
 	    await interaction.reply({ content: "Choose Ur Select", components: [row], embeds: [] });
 
         const filter = i => {
@@ -61,6 +64,11 @@ module.exports = {
             await i.update({ content: 'Selected! Fetching the detailed data relating to your choices...', components: [], embeds:[] });
             await wait(3150); // wait 3.15 secs to emulate the delay of the network
             await i.editReply({content: "Here's your detailed descriptions related to your choices!", embeds: [], components: []});
+
+		const value = Array.from(i.values);
+            if (value.includes('mole')) {
+                await i.followUp({content: "", embeds: [embed1], components: []});
+	    }
 	}
 } 
 
