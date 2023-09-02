@@ -49,7 +49,7 @@ module.exports = {
             );
 	    const embed1 = new EmbedBuilder() 
 	   .setDescription('Created a Voice Channel Mobile Legends')
-	   .setTimeStamp()
+	   
 	    await interaction.reply({ content: "Choose Ur Select", components: [row], embeds: [] });
 
         const filter = i => {
