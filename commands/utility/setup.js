@@ -19,26 +19,31 @@ module.exports = {
                         {
                             label: 'Mobile Legends',
                             description: 'Can Be Used Maxs 5 User',
+                            emoji: '<:mobilelegend:589814018202402819>', 
                             value: 'mole',
                         },
                         {
                             label: 'Apex Legends',
                             description: 'Can Be Used Maxs 5 User',
+                            emoji: '<:apexlegends:1126812581672259634>', 
                             value: 'apex',
                         },
                         {
                             label: 'PUBG Mobile',
                             description: 'Can Be Used Maxs 4 User',
+                            emoji: ' <:pubg:589814016612892672>', 
                             value: 'pubgm',
                         },
                         {
                             label: 'Call Of Duty Mobile',
                             description: 'Can Be Used Maxs 4 User',
+                            emoji: '<:codmob:1147583834334961664>', 
                             value: 'codm',
                         },
                         {
                             label: 'Among Us',
                             description: 'Can Be Used Maxs 10 User',
+                            emoji: '<:amongus:1126812805622931486>', 
                             value: 'amongus',
                         },
                     ),
