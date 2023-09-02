@@ -1,9 +1,10 @@
-const { ActionRowBuilder, EmbedBuilder, StringSelectMenuBuilder, SlashCommandBuilder } = require('discord.js');
+const { ApplicationCommandType, ActionRowBuilder, EmbedBuilder, StringSelectMenuBuilder, SlashCommandBuilder } = require('discord.js');
 const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
     name: 'setup', 
     description: "To Setup Temp Voice", 
+    type: ApplicationCommandType.ChatInput, 
     run: async (client, interaction) => {
 
         const row = new ActionRowBuilder()
