@@ -48,9 +48,10 @@ module.exports = {
                         },
                     ),
             );
-	    const master = interaction.user.username;
-        const target = interaction.options.getUser(interaction.user.id);
-        const cageId = interaction.user.channel.id;
+	    // The 'central' voice channel users must join first
+	    //const voiceChannelId = process.env.VOICE_CHANNEL_ID
+	    // The voice channel name to create for the user
+	    //const voiceChannelName = `vc_${user_id}`
 
 
         if (!(interaction.member.voice.channel)) {
@@ -79,8 +80,38 @@ module.exports = {
     
 		const value = Array.from(i.values);
             if (value.includes('mole')) {
-                await i.followUp({content: "", embeds: [embed1], components: []});
+		    const joinedChannel = i.user.channel.id
+			    if (joinedChannel) {
+				    const channel = await i.guild.channels.create({
+					    guild_id,
+					    name: 'Mobile Legends,
+					    type: 2, // vc
+					    })
+					    await i.guild.members.update({
+						    guild_id, user_id,
+						    channel_id: channel.id,
+					    });
+				    return
+			    }
+                
+		    await i.followUp({content: "", embeds: [embed1], components: []});
 	    }
 	})
     }
-}  
+} 
+
+
+
+// Create a new voice channel when the user joins the specifc voice channel
+
+
+// Delete the user's voice channel when the user disconnects
+/*const leftChannel = !channel_id
+if (leftChannel) {
+  const channels = await lib.discord.guilds['@0.1.0'].channels.list({ guild_id });
+  const channel = channels.find(c => c.name === voiceChannelName)
+  if (channel)
+    await lib.discord.channels['@0.2.0'].destroy({ channel_id: channel.id });
+  return
+}*/
+
