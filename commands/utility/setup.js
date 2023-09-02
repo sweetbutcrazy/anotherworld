@@ -4,7 +4,7 @@ const wait = require('node:timers/promises').setTimeout;
 module.exports = {
     name: 'setup', 
     description: "To Setup Temp Voice", 
-    run: async execute(interaction) {
+    run: async (interaction) {
 
         const row = new ActionRowBuilder()
             .addComponents(
