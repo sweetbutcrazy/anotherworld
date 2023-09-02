@@ -75,9 +75,9 @@ module.exports = {
 			    userLimit: 5,
 		    })
 		    await interaction.member.voice.setChannel(chnl)
-		    
-		    if (chnl.members.size <= 0 && chnl.members.size >= 0) {
-			   await chnl.delete(5000)
+		    await wait(2000)
+		    if (chnl.members.size <= 0 ) {
+			   await chnl.delete()
 		    } 
                
 		    await i.reply({content: "", embeds: [embed1], components: []});
