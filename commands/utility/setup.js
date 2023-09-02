@@ -2,9 +2,8 @@ const { ActionRowBuilder, EmbedBuilder, StringSelectMenuBuilder, SlashCommandBui
 const wait = require('node:timers/promises').setTimeout;
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('select')
-        .setDescription('Replies with a multi-select menu!'),
+    name: 'setup', 
+    description: "To Setup Temp Voice", 
     async execute(interaction) {
 
         const row = new ActionRowBuilder()
