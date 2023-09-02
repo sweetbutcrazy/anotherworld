@@ -69,6 +69,7 @@ module.exports = {
             if (value.includes('mole')) {
                 await i.followUp({content: "", embeds: [embed1], components: []});
 	    }
-	}
+	})
+    }
 } 
 
