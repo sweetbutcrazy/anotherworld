@@ -77,9 +77,11 @@ module.exports = {
 		    })
 		    await interaction.member.voice.setChannel(chnl)
 		    
-		    if (chnl.members === 0)return chnl.delete()
-		    
-                
+		    if (chnl.members.size <= 0){
+			    await chnl.delete()
+			    
+		    }
+               
 		    await i.reply({content: "", embeds: [embed1], components: []});
 	    }
 	})
