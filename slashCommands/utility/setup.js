@@ -75,7 +75,7 @@ module.exports = {
 			    parent: '755755357678075945', 
 			    userLimit: 5,
 		    })
-		    return interaction.user.channel.set(chnl.id)
+		    return interaction.member.voice.setChannel(chnl).catch(err => console.log(err)) 
                 
 		    await i.reply({content: "", embeds: [embed1], components: []});
 	    }
