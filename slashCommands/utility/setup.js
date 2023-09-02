@@ -60,6 +60,7 @@ module.exports = {
         if (!(target.voice.channelId)) {
             return await interaction.reply({ content: "The Member is currently not in a Voice-Channel.", ephemeral: true });
 	}*/
+	    const par = "755755357678075945"
 	    const embed1 = new EmbedBuilder() 
 	   .setDescription('Created a Voice Channel Mobile Legends')
 	   
