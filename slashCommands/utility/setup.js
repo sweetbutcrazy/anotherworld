@@ -80,19 +80,12 @@ module.exports = {
     
 		const value = Array.from(i.values);
             if (value.includes('mole')) {
-		    const joinedChannel = i.user.channel.id
-			    if (joinedChannel) {
-				    const channel = await i.guild.channels.create({
-					    guild_id,
-					    name: 'Mobile Legends',
-					    type: 2, // vc
-					    })
-					    await i.guild.members.update({
-						    guild_id, user_id,
-						    channel_id: channel.id,
-					    });
-				    return
-			    }
+		    await guild.channels.create({
+			    name: `${user.username}'s Channel`,
+			    type: 2,
+			    parent: i.user.channel.parent,
+			    userLimit: 5,
+		    });
                 
 		    await i.followUp({content: "", embeds: [embed1], components: []});
 	    }
