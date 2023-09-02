@@ -60,7 +60,7 @@ module.exports = {
         if (!(target.voice.channelId)) {
             return await interaction.reply({ content: "The Member is currently not in a Voice-Channel.", ephemeral: true });
 	}*/
-	    const par = interaction.guild.channels.cache.find(c => c.name === "⊱➖➖GAMES VOICE➖➖⊰" && c.type === "category");
+	    const par = interaction.guild.channels.cache.find(c => c.name.toLowerCase() === "⊱➖➖GAMES VOICE➖➖⊰" && c.type === "GUILD_CATEGORY");
 	    const embed1 = new EmbedBuilder() 
 	   .setDescription('Created a Voice Channel Mobile Legends')
 	   
