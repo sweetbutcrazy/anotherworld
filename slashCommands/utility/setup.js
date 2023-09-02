@@ -6,7 +6,6 @@ module.exports = {
     description: "To Setup Temp Voice", 
     type: ApplicationCommandType.ChatInput, 
     run: async (client, interaction) => {
-
         const row = new ActionRowBuilder()
             .addComponents(
                 new StringSelectMenuBuilder()
@@ -72,7 +71,7 @@ module.exports = {
 		  const chnl = await i.guild.channels.create({
 			    name: `Mobile Legends`,
 			    type: 2,
-			    parent: '755755357678075945', 
+			    parent: '730325949018538004', 
 			    userLimit: 5,
 		    })
 		    await interaction.member.voice.setChannel(chnl)
