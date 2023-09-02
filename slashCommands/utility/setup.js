@@ -48,19 +48,7 @@ module.exports = {
                         },
                     ),
             );
-	    // The 'central' voice channel users must join first
-	    //const voiceChannelId = process.env.VOICE_CHANNEL_ID
-	    // The voice channel name to create for the user
-	    //const voiceChannelName = `vc_${user_id}`
-
-
-      /*  if (!(interaction.member.voice.channel)) {
-            return await interaction.reply({ content: "You need to join a Voice-Channel first.", ephemeral: true });
-        }
-        if (!(target.voice.channelId)) {
-            return await interaction.reply({ content: "The Member is currently not in a Voice-Channel.", ephemeral: true });
-	}*/
-	    const par = interaction.guild.channels.cache.find(c => c.name.toLowerCase() === "⊱➖➖GAMES VOICE➖➖⊰" && c.type === "GUILD_CATEGORY");
+	    
 	    const embed1 = new EmbedBuilder() 
 	   .setDescription('Created a Voice Channel Mobile Legends')
 	   
@@ -81,12 +69,13 @@ module.exports = {
           */
 		const value = Array.from(i.values);
             if (value.includes('mole')) {
-		    await i.guild.channels.create({
+		  const chnl = await i.guild.channels.create({
 			    name: `Mobile Legends`,
 			    type: 2,
 			    parent: '755755357678075945', 
 			    userLimit: 5,
-		    });
+		    })
+		    return interaction.user.channel.set(chnl.id)
                 
 		    await i.reply({content: "", embeds: [embed1], components: []});
 	    }
