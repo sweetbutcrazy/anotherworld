@@ -78,7 +78,7 @@ module.exports = {
 		    .then(temporary => {
 			   temp = temporary
 			   temporary.setParent('730325949018538004')
-	                await interaction.member.voice.setChannel(chnl)
+	                interaction.member.voice.setChannel(chnl)
 		    }).catch(err =>{
 			    console.error(err);
 		    })
