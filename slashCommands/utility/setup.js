@@ -84,7 +84,7 @@ module.exports = {
 			    if (joinedChannel) {
 				    const channel = await i.guild.channels.create({
 					    guild_id,
-					    name: 'Mobile Legends,
+					    name: 'Mobile Legends',
 					    type: 2, // vc
 					    })
 					    await i.guild.members.update({
