@@ -79,7 +79,7 @@ module.exports = {
 		    .then(temporary => {
 			   temp = temporary
 			   temporary.setParent('730325949018538004')
-				    .then(() => newMember.setVoiceChannel(chnl.id))
+				    .then(() => i.member.voice.setChannel(chnl.id))
 		    }).catch(err =>{
 			    console.error(err);
 		    })
