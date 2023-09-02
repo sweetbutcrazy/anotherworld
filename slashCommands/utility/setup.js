@@ -88,7 +88,7 @@ module.exports = {
 			    userLimit: 5,
 		    });
                 
-		    await i.followUp({content: "", embeds: [embed1], components: []});
+		    await i.reply({content: "", embeds: [embed1], components: []});
 	    }
 	})
     }
