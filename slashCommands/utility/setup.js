@@ -71,7 +71,6 @@ module.exports = {
 		  const chnl = await i.guild.channels.create({
 			    name: `Mobile Legends`,
 			    type: 2,
-			    parent: '730325949018538004', 
 			    userLimit: 5,
 		    })
 		   
