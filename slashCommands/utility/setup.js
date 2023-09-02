@@ -48,6 +48,17 @@ module.exports = {
                         },
                     ),
             );
+	    const master = interaction.user.username;
+        const target = interaction.options.getUser(interaction.user.id);
+        const cageId = interaction.user.channel.id;
+
+
+        if (!(interaction.member.voice.channel)) {
+            return await interaction.reply({ content: "You need to join a Voice-Channel first.", ephemeral: true });
+        }
+        if (!(target.voice.channelId)) {
+            return await interaction.reply({ content: "The Member is currently not in a Voice-Channel.", ephemeral: true });
+	}
 	    const embed1 = new EmbedBuilder() 
 	   .setDescription('Created a Voice Channel Mobile Legends')
 	   
