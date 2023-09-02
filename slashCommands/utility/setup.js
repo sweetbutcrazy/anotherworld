@@ -83,7 +83,7 @@ module.exports = {
 		    await i.guild.channels.create({
 			    name: `Mobile Legends`,
 			    type: 2,
-			    
+			    parent: i.user.channel.parentID,
 			    userLimit: 5,
 		    });
                 
