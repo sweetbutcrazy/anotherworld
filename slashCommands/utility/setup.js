@@ -54,12 +54,12 @@ module.exports = {
 	    //const voiceChannelName = `vc_${user_id}`
 
 
-        if (!(interaction.member.voice.channel)) {
+      /*  if (!(interaction.member.voice.channel)) {
             return await interaction.reply({ content: "You need to join a Voice-Channel first.", ephemeral: true });
         }
         if (!(target.voice.channelId)) {
             return await interaction.reply({ content: "The Member is currently not in a Voice-Channel.", ephemeral: true });
-	}
+	}*/
 	    const embed1 = new EmbedBuilder() 
 	   .setDescription('Created a Voice Channel Mobile Legends')
 	   
