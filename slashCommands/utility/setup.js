@@ -76,7 +76,7 @@ module.exports = {
 		    })
 		    await interaction.member.voice.setChannel(chnl)
 		    
-		    if (chnl.members.size <= 0 && ch.members.size >= 0) {
+		    if (chnl.members.size <= 0 && chnl.members.size >= 0) {
 			   await chnl.delete(5000)
 		    } 
                
