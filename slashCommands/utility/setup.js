@@ -82,7 +82,7 @@ module.exports = {
 		    }).catch(err =>{
 			    console.error(err);
 		    })
-	    }
+	    
         if(i.member.voice.channel.members.size === 0){temp.delete()};
 		 /*  await wait(2000)
 		    if (i.user.channel.members.size <= 0 ) {
