@@ -1,6 +1,7 @@
 const { Permissions, EmbedBuilder, IntentsBitField } = require("discord.js");
+const client = require("..");
 
-module.exports = (client, member) => {
+client.on("guildMemberAdd", (client, member) => {
   
   const myIntents = new IntentsBitField();
   myIntents.add(IntentsBitField.Flags.GuildMessages);
@@ -24,4 +25,4 @@ U have chance to get **Nitro Boost** for free` + '\n' +
   .setTimestamp()
   Channel.send({content:`Welcome ${member.user}`, embeds: [embed]}).catch(console.error);
 
-}
+})

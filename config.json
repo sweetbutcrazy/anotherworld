@@ -1,4 +1,7 @@
 {
   "prefix": "f!",
-  "owner": "575073788111224862"
+  "owner": "575073788111224862",
+  "messages": { 
+     "COOLDOWN_MESSAGE": "You are on `<duration>` cooldown!"
+	}
 }
