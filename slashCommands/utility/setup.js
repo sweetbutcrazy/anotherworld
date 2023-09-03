@@ -83,7 +83,7 @@ module.exports = {
 			    console.error(err);
 		    })
 	    
-        if(i.member.voice.channel.members.size === 0){temp.delete()};
+        if(temp.members.size === 0){temp.delete()};
 		 /*  await wait(2000)
 		    if (i.user.channel.members.size <= 0 ) {
 			   await chnl.delete()
