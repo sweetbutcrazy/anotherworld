@@ -89,7 +89,7 @@ module.exports = {
 			   await chnl.delete()
 		    } 
                */
-		    await i.editReply({content: "", embeds: [embed1], components: []});
+		    await i.update({content: "", embeds: [embed1], components: []});
 	    }
 	})
     }
