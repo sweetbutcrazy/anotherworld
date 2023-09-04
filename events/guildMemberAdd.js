@@ -20,7 +20,7 @@ U have chance to get **Nitro Boost** for free` + '\n' +
 `<#1077305891717652500>`)
  // .setDescription(`Read The Rules In :` + '\n' + `<#1065237028788252712>` + '\n' + `Take Your Role In :` + '\n' + `<#1126799549747437649>` + '\n' + `Introduction Yourself In :` + '\n' + `<#1077305891717652500>`)    
   .setThumbnail(member.user.avatarURL())
-  .setImage('https://cdn.discordapp.com/attachments/596041860711972864/1143712429906333827/27343902-1dec-4650-bba8-28b7843a3e3f.jpg') 
+  .setImage('https://cdn.discordapp.com/attachments/1077312082116092085/1146137697161842699/Blue_and_Purple_Gradient_Bold_Music_Festival_Event_Instagram_Post_20230830_004146_0000.png') 
   .setFooter({text: `${member.guild.name}`, iconURL: member.guild.iconURL()})
   .setTimestamp()
   Channel.send({content:`Welcome ${member.user}`, embeds: [embed]}).catch(console.error);
