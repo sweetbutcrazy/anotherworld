@@ -8,8 +8,8 @@ client.on("guildMemberAdd", (member) => {
   
   const Channel = member.guild.channels.cache.get("1127429951998672906")//.Permissions({intents: [myIntents]})
   const embed = new EmbedBuilder()
-    .setDescription(`Welcome to ***Another World🌎***
-U have chance to get **Nitro Boost** for free` + '\n' + 
+    .setDescription(`***Another World🌎***
+u have chance to get **Nitro Boost** for free` + '\n' + 
 `Check it out:` + '\n' +
 `<#1142671893443387412>` + '\n' + 
 `Read The Rules In :` + '\n' +
