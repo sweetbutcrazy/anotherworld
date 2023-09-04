@@ -40,7 +40,7 @@ client.on("guildMemberAdd", async member => {
     .setBlur(2)
 
     const channel = await member.guild.channels.fetch()
-    .then(channels => channels.find(x => x.id === ""))
+    .then(channels => channels.find(x => x.id === "596041860711972864"))
 
     return channel?.send({
         files: [ new MessageAttachment(await image.generate(), "welcome.gif") ]
