@@ -13,7 +13,6 @@ const client = new Client({
 });
 
 const fs = require('fs');
-const Welcomer = require('./Welcomer.js');
 const config = require('./config.json');
 require('dotenv').config() // remove this line if you are using replit
 
