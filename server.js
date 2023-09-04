@@ -34,7 +34,7 @@ client.on("guildMemberAdd", (member) => {
 /*  const myIntents = new IntentsBitField();
   myIntents.add(IntentsBitField.Flags.GuildMessages, IntentsBitField.Flags.GuildMembers);
   */
-  const Channel = member.guild.channels.cache.get("1127429951998672906")//.Permissions({intents: [myIntents]})
+  const Channel = member.guild.channels.cache.get("719871302445563974")//.Permissions({intents: [myIntents]})
   const embed = new EmbedBuilder()
     .setDescription(`Welcome to ***Another World🌎***
 U have chance to get **Nitro Boost** for free` + '\n' + 
@@ -54,5 +54,9 @@ U have chance to get **Nitro Boost** for free` + '\n' +
   Channel.send({content:`Welcome ${member.user}`, embeds: [embed]}).catch(console.error);
 
 })
+
+client.on("error", (e) => console.error(e));
+client.on("warn", (e) => console.warn(e));
+client.on("debug", (e) => console.info(e));
 
 client.login(process.env.TOKEN)
