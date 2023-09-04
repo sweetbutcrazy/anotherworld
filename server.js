@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Partials, Collection, Permissions, EmbedBuilder, IntentsBitField } = require('discord.js');
+const { Client, GatewayIntentBits, Partials, Collection, Permissions, EmbedBuilder } = require('discord.js');
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds, 
@@ -28,12 +28,12 @@ fs.readdirSync('./handlers').forEach((handler) => {
   require(`./handlers/${handler}`)(client)
 });
 
-client.on("guildMemberAdd", (client, member) => {
+client.on("guildMemberAdd", (member) => {
   
-  const myIntents = new IntentsBitField();
+/*  const myIntents = new IntentsBitField();
   myIntents.add(IntentsBitField.Flags.GuildMessages, IntentsBitField.Flags.GuildMembers);
-  
-  const Channel = member.guild.channels.cache.get("1127429951998672906").Permissions({intents: [myIntents]})
+  */
+  const Channel = member.guild.channels.cache.get("1127429951998672906")//.Permissions({intents: [myIntents]})
   const embed = new EmbedBuilder()
     .setDescription(`Welcome to ***Another World🌎***
 U have chance to get **Nitro Boost** for free` + '\n' + 
