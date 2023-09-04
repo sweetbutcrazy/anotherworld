@@ -1,7 +1,7 @@
 const { Permissions, EmbedBuilder, IntentsBitField } = require("discord.js");
 const client = require("..");
 
-client.on("guildMemberAdd", (client, member) => {
+client.on("guildMemberAdd", (member) => {
   
   const myIntents = new IntentsBitField();
   myIntents.add(IntentsBitField.Flags.GuildMessages);
