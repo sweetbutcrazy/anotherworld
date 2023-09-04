@@ -30,23 +30,6 @@ fs.readdirSync('./handlers').forEach((handler) => {
   require(`./handlers/${handler}`)(client)
 });
 
-client.on("guildMemberAdd", async member => {
-    const image = new Welcomer()
-    .setBackground("https://i.pinimg.com/originals/07/28/dc/0728dc400eca09632215055ff003d8bf.gif")
-    .setGIF(true)
-    .setAvatar(member.user.displayAvatarURL({ format: "png" }))
-    .setName(member.user.username)
-    .setDiscriminator(member.user.discriminator)
-    .setBlur(2)
-
-    const channel = await member.guild.channels.fetch()
-    .then(channels => channels.find(x => x.id === "596041860711972864"))
-
-    return channel?.send({
-        files: [ new MessageAttachment(await image.generate(), "welcome.gif") ]
-    })
-})
-
 client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 client.on("debug", (e) => console.info(e));
