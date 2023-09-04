@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Partials, Collection, Permissions, EmbedBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, Partials, Collection, Permissions, EmbedBuilder, MessageAttachment} = require('discord.js');
 const client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds, 
