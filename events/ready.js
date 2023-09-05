@@ -4,15 +4,16 @@ const chalk = require('chalk');
 
 client.on("ready", () => {
 	const activities = [
-		{ name: `${client.guilds.cache.size} Servers`, type: ActivityType.Listening },
+		{ name : `https://discord.gg/anotherworldserver`, type: ActivityType.Playing} 
+		/*{ name: `${client.guilds.cache.size} Servers`, type: ActivityType.Listening },
 		{ name: `${client.channels.cache.size} Channels`, type: ActivityType.Playing },
 		{ name: `${client.users.cache.size} Users`, type: ActivityType.Watching },
-		{ name: `Discord.js v14`, type: ActivityType.Competing }
+		{ name: `Discord.js v14`, type: ActivityType.Competing }*/
 	];
 	const status = [
-		'online',
-		'dnd',
-		'idle'
+		'online'
+		
+		
 	];
 	let i = 0;
 	setInterval(() => {
