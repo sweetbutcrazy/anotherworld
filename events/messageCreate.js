@@ -7,7 +7,7 @@ const prefix = client.prefix;
 const cooldown = new Collection();
 
 client.on('messageCreate', async message => {
-	if(message.content === "welcome" || message.content === "welkam") {
+	if(message.content.toLowerCase=== "welcome" || message.content.toLowerCase === "welkam" || message.content.toUpperCase === "welcome" || message.content.toUpperCase === "welkam") {
 		message.channel.send('https://media.discordapp.net/attachments/596041860711972864/1148662828786536479/20230905_235541_0000.png') 
 	} 
 	if(message.author.bot) return;
