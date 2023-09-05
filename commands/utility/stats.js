@@ -62,7 +62,7 @@ module.exports = {
                     },
                     { name: "System", value: `\`\`\`Uptime: ${dDisplay + hDisplay + mDisplay + sDisplay}\`\`\``, inline: true },
                 ])
-                .setColor(0x3A5FA5C)
+                .setColor('#1a1414')
                 .setTimestamp(Date.now());
 
             return message.reply({ embeds: [embed] });
