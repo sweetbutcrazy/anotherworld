@@ -4,7 +4,7 @@ const chalk = require('chalk');
 
 client.on("ready", () => {
 	const activities = [
-		{ name : `Support Server :`, url: `https://discord.gg/anotherworldserver`, type: ActivityType.Playing} 
+		{ name : `Support Server :`, url: 'https://discord.gg/anotherworldserver', type: ActivityType.Playing} 
 		/*{ name: `${client.guilds.cache.size} Servers`, type: ActivityType.Listening },
 		{ name: `${client.channels.cache.size} Channels`, type: ActivityType.Playing },
 		{ name: `${client.users.cache.size} Users`, type: ActivityType.Watching },
