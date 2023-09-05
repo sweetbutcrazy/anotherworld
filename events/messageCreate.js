@@ -7,6 +7,9 @@ const prefix = client.prefix;
 const cooldown = new Collection();
 
 client.on('messageCreate', async message => {
+	if(message.content === "welcome" || message.content === "welkam") {
+		message.channel.send('https://media.discordapp.net/attachments/596041860711972864/1148662828786536479/20230905_235541_0000.png') 
+	} 
 	if(message.author.bot) return;
 	if(message.channel.type !== 0) return;
 	if(!message.content.startsWith(prefix)) return; 
