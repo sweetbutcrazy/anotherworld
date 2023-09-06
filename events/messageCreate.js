@@ -1,4 +1,4 @@
-const { EmbedBuilder, Collection, PermissionsBitField } = require('discord.js')
+const { Discord, EmbedBuilder, Collection, PermissionsBitField } = require('discord.js')
 const ms = require('ms');
 const client = require('..');
 const config = require('../config.json');
@@ -8,9 +8,8 @@ const cooldown = new Collection();
 
 client.on('messageCreate', async message => {
 	if(message.content.toLowerCase() === "welcome" || message.content.toUpperCase() === "welcome") {
-		 const eimgc = new EmbedBuilder()
-			.setImage('https://media.discordapp.net/attachments/596041860711972864/1148662828786536479/20230905_235541_0000.png')
-		message.channel.send({content: ``, embed: [eimgc]})
+		 const eimgc = new Discord.Attachment(buffer, 'https://media.discordapp.net/attachments/596041860711972864/1148662828786536479/20230905_235541_0000.png')
+		message.channel.send(eimgc)
 	} 
 	if(message.content.toLowerCase() === "welkam" || message.content.toUpperCase() === "welkam") {
 		const eimgk = new EmbedBuilder() 
