@@ -8,10 +8,14 @@ const cooldown = new Collection();
 
 client.on('messageCreate', async message => {
 	if(message.content.toLowerCase() === "welcome" || message.content.toUpperCase() === "welcome") {
-		message.channel.send({content: '', image:{ url: 'https://media.discordapp.net/attachments/596041860711972864/1148662828786536479/20230905_235541_0000.png'}}) 
+		 const eimgc = new EmbedBuilder()
+			 setImage('https://media.discordapp.net/attachments/596041860711972864/1148662828786536479/20230905_235541_0000.png')
+		message.reply({embed: [eimgc]})
 	} 
 	if(message.content.toLowerCase() === "welkam" || message.content.toUpperCase() === "welkam") {
-		message.channel.send({content: '', image:{ url: 'https://media.discordapp.net/attachments/678916349707157504/1148914002232098826/20230906_163347_0000.png'}})
+		const eimgk = new EmbedBuilder() 
+			setImage('https://media.discordapp.net/attachments/678916349707157504/1148914002232098826/20230906_163347_0000.png')
+		message.reply({embed: [eimgk]})
 	} 
 	if(message.author.bot) return;
 	if(message.channel.type !== 0) return;
