@@ -24,7 +24,7 @@ client.on("guildMemberUpdate", async(newMember, oldMember) => {
           })
           .setTimestamp();
 
-        chnl.send({content: newMember.user.tag, embed: boostEmbed })
+        chnl.send({content: newMember.user.tag, embed: [boostEmbed]})
 
       }
   }
