@@ -19,7 +19,7 @@ module.exports= {
   else
       return text;
 }try {
-        message.content.delete(5000)
+      message.delete(5000)
       const code = args.join(" ");
       let evaled = eval(code);
       let rawEvaled = evaled;
