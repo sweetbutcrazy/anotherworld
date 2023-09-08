@@ -12,7 +12,7 @@ client.on('messageCreate', async message => {
 		message.channel.send(eimgc)
 	} 
 	if(message.content.toLowerCase() === "welkam" || message.content.toUpperCase() === "welkam") {
-		const eimgk = 'https://media.discordapp.net/attachments/678916349707157504/1148914002232098826/20230906_163347_0000.png'
+		const eimgk = 'https://media.discordapp.net/attachments/1077312082116092085/1149679861611384883/1694175420787.png'
 		message.channel.send(eimgk)
 	} 
 	if(message.author.bot) return;
