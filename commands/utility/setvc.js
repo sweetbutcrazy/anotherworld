@@ -34,7 +34,7 @@ module.exports = {
                 .setFooter({
                     text: `© ${client.user.username} | Total Commands: ${client.slashCommands.size}`,
                     iconURL: client.user.displayAvatarURL({ dynamic: true }),
-               */ })
+               })*/
                 .setTimestamp();
 
             const row = new ActionRowBuilder().addComponents([
@@ -80,9 +80,9 @@ module.exports = {
                                  .setFooter({
                                     text: `© ${client.user.username} | Total Commands: ${
                                         client.slashCommands.filter((c) => c.category === directory).size
-                                */    }`,
+                                    }`,
                                     iconURL: client.user.displayAvatarURL({ dynamic: true }),
-                                })
+                                })*/
                                 .setTimestamp();
 
                             msg.edit({ embeds: [embed] });
