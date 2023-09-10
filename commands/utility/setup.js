@@ -4,7 +4,7 @@ const wait = require('node:timers/promises').setTimeout;
 module.exports = {
     name: 'setup', 
     description: "To Setup Temp Voice", 
-    run: async (interaction) => {
+    run: async (interaction, message) => {
 
         const row = new ActionRowBuilder()
             .addComponents(
@@ -12,8 +12,8 @@ module.exports = {
                     .setCustomId('tempv')
                     .setPlaceholder('Nothing selected')
                     // here we demand our friendly user to choose more than 2 options while less than 4 options
-                    //.setMinValues(2)
-                    //.setMaxValues(4)
+                    .setMinValues(1)
+                    .setMaxValues(1)
                     .addOptions(
                         {
                             label: 'Mobile Legends',
@@ -50,13 +50,13 @@ module.exports = {
 	    const embed1 = new EmbedBuilder() 
 	   .setDescription('Created a Voice Channel Mobile Legends')
 	   
-	    await interaction.reply({ content: "Choose Ur Select", components: [row], embeds: [] });
+	    await message.reply({ content: "Choose Ur Select", components: [row], embeds: [] });
 
         const filter = i => {
-            return interaction.customId === 'tempv' && i.user.id === interaction.user.id;
+            return message.customId === 'tempv' && i.user.id === message.user.id;
         }
 
-        const collector = interaction.channel.createMessageComponentCollector(
+        const collector = message.channel.createMessageComponentCollector(
             filter,
         );
 
