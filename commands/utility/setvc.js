@@ -5,7 +5,8 @@ const {
     StringSelectMenuOptionBuilder,
     ButtonBuilder,
     ButtonStyle,
-    ChannelType
+    ChannelType, 
+    PermissionsBitField
 } = require("discord.js");
 //const { readdirSync } = require("fs");
 module.exports = {
