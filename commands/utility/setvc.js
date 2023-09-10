@@ -67,6 +67,7 @@ module.exports = {
                                     name: `${message.guild.members.me.displayName} Help Command!`,
                                     iconURL: message.guild.iconURL({ dynamic: true }),
                                 })
+                               .setDescription('okee')
                              /*  .setDescription(
                                     `These are all available commands for this category to use. Try adding [\`/\`] before the commands or you can just click these commands below.\n\n**❯ ${
                                         directory.slice(0, 1).toUpperCase() + directory.slice(1)
