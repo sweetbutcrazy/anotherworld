@@ -27,14 +27,14 @@ module.exports = {
                     iconURL: message.guild.iconURL({ dynamic: true }),
                 })
                /* .setColor(client.color)
-                .setImage(imageUrl)
+                .setImage(imageUrl)*/
                 .setDescription(
                     `Hello **${message.author}**, I'm **${client.user}**. A Rich Quality Discord Music Bot. Support  Spotify, SoundCloud, Apple Music & Others. Find out what I can do using menu selection below.`,
                 )
                 .setFooter({
                     text: `© ${client.user.username} | Total Commands: ${client.slashCommands.size}`,
                     iconURL: client.user.displayAvatarURL({ dynamic: true }),
-               })*/
+               })
                 .setTimestamp();
 
             const row = new ActionRowBuilder().addComponents([
