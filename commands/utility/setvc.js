@@ -144,7 +144,7 @@ module.exports = {
                    // streamerKeys.push(newState.member.user.id);
                    // message.guild.member.voiceChannel.set(message.member.user.id, channel);
                     await message.member.voice.setChannel(channel);
-                                    if(m.member.voice.channel.members.size <= 1)channel.delete();
+                                    if(channel.members.size === 0).channel.delete();
 	
                 }).catch((error) => {
                     console.error(`${error}`);
