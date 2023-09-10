@@ -122,6 +122,8 @@ module.exports = {
                             */
                             const value = Array.from(m.values);
                             if (value.includes('mole')) {
+                                const everyoneRole = message.guild.roles.cache.find(role => role.name === '@everyone');
+   
                                 const channel = message.member.guild.channels.create({
                     name: 'Mobile Legends', 
                     type: ChannelType.GuildVoice,
@@ -129,12 +131,12 @@ module.exports = {
                     permissionOverwrites: [{
                             id: message.member.user.id,
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.MoveMembers, PermissionsBitField.Flags.Speak, PermissionsBitField.Flags.Stream]
-                    }
-                       /* {
+                    }, 
+                        {
                             id: everyoneRole.id,
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ViewChannel],
                             deny: [PermissionsBitField.Flags.Connect]
-                        }*/
+                        }
                     ]
                 }).then(async(channel) => {
                    // streamerKeys.push(newState.member.user.id);
