@@ -127,6 +127,7 @@ module.exports = {
                                 if (value.includes('apex')) {
                                 message.channel.send('apex') 
                                 msg.edit({embeds : [embed]})
+                                }
                         }
                     }
                 });
