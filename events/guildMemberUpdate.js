@@ -18,13 +18,13 @@ client.on("guildMemberUpdate", async(newMember, oldMember) => {
             `> <@${newMember.user.id}>.\n\n> Thanks For Boost The Server \n> u Can DM STAFF to Make a Custom Role`
           )
           .setColor("F47FFF")
-          .setFooter({
+         /* .setFooter({
             text: `${newMember.guild.name}`,
             iconURL: newMember.guild.iconURL({ size: 1024 }),
-          })
+          })*/
           .setTimestamp();
 
-        chnl.send({content: newMember.user.tag, embed: [boostEmbed]})
+        chnl.send({content: `<@${newMember.user.id}>`, embed: [boostEmbed]})
 
       }
   }
