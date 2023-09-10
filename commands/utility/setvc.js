@@ -44,9 +44,7 @@ module.exports = {
                     .setMinValues(1)
                     .setOptions(
                         categories.map((category) => {
-                            return new StringSelectMenuOptionBuilder()
-                                .setLabel('Mobile Legends')
-                                .setValue('Make a Room For Playing Mobile Legends');
+                            return new StringSelectMenuOptionBuilder().setLabel('Mobile Legends').setValue('Make a Room For Playing Mobile Legends');
                         }),
                     ),
             ]);
