@@ -5,6 +5,7 @@ const {
     StringSelectMenuOptionBuilder,
     ButtonBuilder,
     ButtonStyle,
+    ChannelType
 } = require("discord.js");
 //const { readdirSync } = require("fs");
 module.exports = {
@@ -121,6 +122,27 @@ module.exports = {
                             */
                             const value = Array.from(m.values);
                             if (value.includes('mole')) {
+                                const channel = message.member.guild.channels.create({
+                    name: 'Mobile Legends', 
+                    type: ChannelType.GuildVoice,
+                    parent: '730325949018538004',
+                    permissionOverwrites: [{
+                            id: message.member.user.id,
+                            allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.MoveMembers, PermissionsBitField.Flags.Speak, PermissionsBitField.Flags.Stream]
+                    }
+                       /* {
+                            id: everyoneRole.id,
+                            allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ViewChannel],
+                            deny: [PermissionsBitField.Flags.Connect]
+                        }*/
+                    ]
+                }).then(async(channel) => {
+                   // streamerKeys.push(newState.member.user.id);
+                   // message.guild.member.voiceChannel.set(message.member.user.id, channel);
+                    await message.member.voice.setChannel(channel);
+                }).catch((error) => {
+                    console.error(`${error}`);
+                });
                                 message.channel.send('created')
                                 msg.edit({ embeds: [embed] });
                             } else
