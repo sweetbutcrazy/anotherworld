@@ -20,6 +20,7 @@ module.exports = {
 
         if (!args[0]) {
             //const categories = readdirSync("./src/commands/Slash/");
+            const categories = ['Mobile Legends', 'Among Us'];
             const embed = new EmbedBuilder()
                 .setAuthor({
                     name: `${message.guild.members.me.displayName} Help Command!`,
@@ -44,7 +45,7 @@ module.exports = {
                     .setMinValues(1)
                     .setOptions(
                         categories.map((category) => {
-                            return new StringSelectMenuOptionBuilder().setLabel('Mobile Legends').setValue('Make a Room For Playing Mobile Legends');
+                            return new StringSelectMenuOptionBuilder().setLabel(category).setValue(category);
                         }),
                     ),
             ]);
