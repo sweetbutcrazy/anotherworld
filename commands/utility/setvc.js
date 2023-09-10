@@ -100,7 +100,7 @@ module.exports = {
                             .setDescription(
                                 `Help Command Menu was timed out, try using \`/help\` to show the help command menu again.\n\nThank You.`,
                             )
-                            .setImage(imageUrl)
+                           // .setImage(imageUrl)
                             .setColor(client.color)
                             .setFooter({
                                 text: `© ${client.user.username} | Total Commands: ${client.slashCommands.size}`,
