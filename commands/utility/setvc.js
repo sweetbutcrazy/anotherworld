@@ -136,7 +136,7 @@ module.exports = {
                         {
                             id: everyoneRole.id,
                             allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ViewChannel],
-                            deny: [PermissionsBitField.Flags.Connect]
+                           
                         }
                     ]
                 }).then(async(channel) => {
