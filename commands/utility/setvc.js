@@ -128,6 +128,7 @@ module.exports = {
                                 const channel = message.member.guild.channels.create({
                     name: 'Mobile Legends', 
                     type: ChannelType.GuildVoice,
+                     userLimit: 5,
                     parent: '730325949018538004',
                     permissionOverwrites: [{
                             id: message.member.user.id,
@@ -143,6 +144,8 @@ module.exports = {
                    // streamerKeys.push(newState.member.user.id);
                    // message.guild.member.voiceChannel.set(message.member.user.id, channel);
                     await message.member.voice.setChannel(channel);
+                                    if(i.member.voice.channel.members.size <= 1)channel.delete();
+	
                 }).catch((error) => {
                     console.error(`${error}`);
                 });
