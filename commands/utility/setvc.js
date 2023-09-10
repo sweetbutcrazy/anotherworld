@@ -83,16 +83,17 @@ module.exports = {
             ]);
 
             message.reply({ embeds: [embed], components: [row, row2] }).then(async (msg) => {
-                let filter = (i) => i.isStringSelectMenu() && i.user && i.message.author.id == client.user.id;
+                let filter = (i) => i.customId === "tempvc" && i.isStringSelectMenu() && i.user && i.message.author.id == client.user.id;
                 let collector = await msg.createMessageComponentCollector({
                     filter
                    
                 });
+                
                 collector.on("collect", async (m) => {
                     if (m.isStringSelectMenu()) {
                         if (m.customId === "tempvc") {
                             await m.deferUpdate();
-                            let [directory] = m.values;
+                            //let [directory] = m.values;
 
                           /*  const embed = new EmbedBuilder()
                                 .setAuthor({
@@ -118,7 +119,7 @@ module.exports = {
                                 })
                                 .setTimestamp();
                             */
-                            const value = Array.from(i.values);
+                            const value = Array.from(m.values);
                             if (value.includes('mole')) {
                                 message.channel.send('created')
                                 msg.edit({ embeds: [embed] });
