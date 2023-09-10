@@ -94,7 +94,7 @@ module.exports = {
                             await m.deferUpdate();
                             let [directory] = m.values;
 
-                            const embed = new EmbedBuilder()
+                          /*  const embed = new EmbedBuilder()
                                 .setAuthor({
                                     name: `${message.guild.members.me.displayName} Help Command!`,
                                     iconURL: message.guild.iconURL({ dynamic: true }),
@@ -115,10 +115,14 @@ module.exports = {
                                         client.slashCommands.filter((c) => c.category === directory).size
                                     }`,
                                     iconURL: client.user.displayAvatarURL({ dynamic: true }),
-                                })*/
+                                })
                                 .setTimestamp();
-
-                            msg.edit({ embeds: [embed] });
+                            */
+                            const value = Array.from(i.values);
+                            if (value.includes('mole')) {
+                                message.channel.send('created')
+                                msg.edit({ embeds: [embed] });
+                            }
                         }
                     }
                 });
