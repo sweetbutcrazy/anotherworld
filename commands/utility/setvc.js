@@ -83,7 +83,7 @@ module.exports = {
                     ),
             ]);
 
-            message.reply({ embeds: [embed], components: [row, row2] }).then(async (msg) => {
+            message.reply({ embeds: [embed], components: [row]}).then(async (msg) => {
                 let filter = (i) => i.customId === "tempvc" && i.isStringSelectMenu() && i.user && i.message.author.id == client.user.id;
                 let collector = await msg.createMessageComponentCollector({
                     filter
