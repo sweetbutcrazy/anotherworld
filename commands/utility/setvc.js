@@ -14,8 +14,8 @@ module.exports = {
     aliases: ["vcset"],
     owner: false,
     run: async (client, message, args) => {
-        const row2 = new ActionRowBuilder()
-            .addComponents(new ButtonBuilder().setLabel("Support").setURL("https://discord.gg/anotherworldserver").setStyle(ButtonStyle.Link))
+        //const row2 = new ActionRowBuilder()
+           // .addComponents(new ButtonBuilder().setLabel("Support").setURL("https://discord.gg/anotherworldserver").setStyle(ButtonStyle.Link))
            // .addComponents(new ButtonBuilder().setLabel("Invite").setURL(inviteUrl).setStyle(ButtonStyle.Link));
 
         if (!args[0]) {
