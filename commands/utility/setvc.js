@@ -123,7 +123,10 @@ module.exports = {
                             if (value.includes('mole')) {
                                 message.channel.send('created')
                                 msg.edit({ embeds: [embed] });
-                            }
+                            } else
+                                if (value.includes('apex')) {
+                                message.channel.send('apex') 
+                                msg.edit({embeds : [embed]})
                         }
                     }
                 });
