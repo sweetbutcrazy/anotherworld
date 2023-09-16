@@ -95,60 +95,10 @@ module.exports = {
                     if (m.isStringSelectMenu()) {
                         if (m.customId === "tempvc") {
                             await m.deferUpdate();
-                            //let [directory] = m.values;
-
-                          /*  const embed = new EmbedBuilder()
-                                .setAuthor({
-                                    name: `${message.guild.members.me.displayName} Help Command!`,
-                                    iconURL: message.guild.iconURL({ dynamic: true }),
-                                })
-                               .setDescription('okee')
-                             /*  .setDescription(
-                                    `These are all available commands for this category to use. Try adding [\`/\`] before the commands or you can just click these commands below.\n\n**❯ ${
-                                        directory.slice(0, 1).toUpperCase() + directory.slice(1)
-                                    }:**\n${client.slashCommands
-                                        .filter((c) => c.category === directory)
-                                        .map((c) => `\`${c.name}\` : *${c.description}*`)
-                                        .join("\n")}`,
-                                )
-                               // .setColor(client.color)
-                              //  .setImage(imageUrl)
-                                 .setFooter({
-                                    text: `© ${client.user.username} | Total Commands: ${
-                                        client.slashCommands.filter((c) => c.category === directory).size
-                                    }`,
-                                    iconURL: client.user.displayAvatarURL({ dynamic: true }),
-                                })
-                                .setTimestamp();
-                            */
+                            
                             const value = Array.from(m.values);
                             if (value.includes('mole')) {
-                                const everyoneRole = message.guild.roles.cache.find(role => role.name === '@everyone');
-   
-                                const channel = message.member.guild.channels.create({
-                    name: 'Mobile Legends', 
-                    type: ChannelType.GuildVoice,
-                     userLimit: 5,
-                    parent: '730325949018538004',
-                    permissionOverwrites: [{
-                            id: message.member.user.id,
-                            allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.MoveMembers, PermissionsBitField.Flags.Speak, PermissionsBitField.Flags.Stream]
-                    }, 
-                        {
-                            id: everyoneRole.id,
-                            allow: [PermissionsBitField.Flags.ViewChannel, PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ViewChannel],
-                           
-                        }
-                    ]
-                }).then(async(channel) => {
-                   // streamerKeys.push(newState.member.user.id);
-                   // message.guild.member.voiceChannel.set(message.member.user.id, channel);
-                    await message.member.voice.setChannel(channel);
-                                    if(channel.members.size === 0){channel.delete()};
-	
-                }).catch((error) => {
-                    console.error(`${error}`);
-                });
+                                
                                 message.channel.send('created')
                                 msg.edit({ embeds: [embed] });
                             } else
